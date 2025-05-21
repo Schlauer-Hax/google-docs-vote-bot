@@ -4,9 +4,9 @@ This bot is used to automate voting on google forms.
 
 ## Usage
 ```bash
-docker run -d --name=google-forms-vote-bot -e FORM_URL="https://docs.google.com/forms/..." -e ENTRY="Test" --init --cap_add=SYS_ADMIN docker.pkg.github.com/korti11/google-docs-vote-bot/google-forms-vote-bot:latest
+docker run -d --name=google-forms-vote-bot -e FORM_URL="https://docs.google.com/forms/..." -e ENTRY="Test" --init --cap-add=SYS_ADMIN ghcr.io/korti11/google-docs-vote-bot/google-forms-vote-bot:latest
 ```
-The parameter --init and --cap_add=SYS_ADMIN are needed for Puppeteer to work within the docker container.
+The parameter --init and --cap-add=SYS_ADMIN are needed for Puppeteer to work within the docker container.
 
 ### Environment variables
 #### FORM_URL
@@ -62,7 +62,7 @@ version: '3.8'
 services:
     google-forms-vote-bot:
         container_name: 'google-forms-vote-bot'
-        image: docker.pkg.github.com/korti11/google-docs-vote-bot/google-forms-vote-bot:latest
+        image: ghcr.io/korti11/google-docs-vote-bot/google-forms-vote-bot:latest
         init: true
         cap_add:
             - SYS_ADMIN
